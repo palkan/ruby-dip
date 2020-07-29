@@ -1,0 +1,22 @@
+version: '3'
+services:
+  dev:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    command: sleep infinity
+    image: ruby-dev:1.1
+    volumes:
+      - ${RUBY_SRC_PATH}:/${PWD}/ruby:cached
+      - .dockerdev/.bashrc:/root/.bashrc:ro
+      - hist:/usr/hist/:cached
+    environment:
+      HISTFILE: /usr/hist/.bash_history
+      PROMPT_DIRTRIM: 2
+      PS1: '[\W]\! '
+    working_dir: ${PWD}/ruby
+    tmpfs:
+      - /tmp
+
+volumes:
+  hist:

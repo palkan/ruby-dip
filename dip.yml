@@ -1,0 +1,25 @@
+version: '4'
+
+environment:
+  RUBY_SRC_PATH: "../ruby"
+
+compose:
+  files:
+    - docker-compose.yml
+  project_name: ruby
+
+interaction:
+  bash:
+    description: Open a Bash shell in app's container
+    service: dev
+    command: /bin/bash
+
+  make:
+    description: Run make tasks
+    service: dev
+    command: make
+
+provision:
+  - dip bash autoconf
+  - dip bash ./configure
+  - dip make
