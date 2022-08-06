@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       context: ./
     command: sleep infinity
-    image: ruby-dev:1.1
+    image: ruby-dev:1.2
     volumes:
       - ${RUBY_SRC_PATH}:/${PWD}/ruby:cached
       - .dockerdev/.bashrc:/root/.bashrc:ro

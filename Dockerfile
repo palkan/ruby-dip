@@ -1,5 +1,5 @@
 # Based on https://gist.github.com/kirs/3912e1a44b67fda906ab4f6aad09ebaf (from https://kirshatrov.com/2020/01/11/contributing-to-mri/)
-FROM ruby:2.7.1-buster
+FROM ruby:3.1-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive
 
